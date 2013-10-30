@@ -21,7 +21,20 @@
 		C1368419181246DF00A0A5AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1368417181246DF00A0A5AE /* InfoPlist.strings */; };
 		C136841B181246DF00A0A5AE /* Out_of_This_WorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C136841A181246DF00A0A5AE /* Out_of_This_WorldTests.m */; };
 		C13684261812478F00A0A5AE /* MASOuterSpaceVableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */; };
+		C15368E8181F3300002DA620 /* MASSpaceDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C15368E7181F3300002DA620 /* MASSpaceDataViewController.m */; };
+		C19D6FC718175D54008FC604 /* Earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FBD18175D54008FC604 /* Earth.jpg */; };
+		C19D6FC818175D54008FC604 /* EinsteinRing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FBE18175D54008FC604 /* EinsteinRing.jpg */; };
+		C19D6FC918175D54008FC604 /* Jupiter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FBF18175D54008FC604 /* Jupiter.jpg */; };
+		C19D6FCA18175D54008FC604 /* Mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FC018175D54008FC604 /* Mars.jpg */; };
+		C19D6FCB18175D54008FC604 /* Mercury.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FC118175D54008FC604 /* Mercury.jpg */; };
+		C19D6FCC18175D54008FC604 /* Neptune.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FC218175D54008FC604 /* Neptune.jpg */; };
+		C19D6FCD18175D54008FC604 /* Orion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FC318175D54008FC604 /* Orion.jpg */; };
+		C19D6FCE18175D54008FC604 /* Saturn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FC418175D54008FC604 /* Saturn.jpg */; };
+		C19D6FCF18175D54008FC604 /* Uranus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FC518175D54008FC604 /* Uranus.jpg */; };
+		C19D6FD018175D54008FC604 /* Venus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C19D6FC618175D54008FC604 /* Venus.jpg */; };
+		C19D6FD418175D88008FC604 /* MASSpaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C19D6FD318175D88008FC604 /* MASSpaceObject.m */; };
 		C1A661BC181473D400A08C24 /* AstronomicalData.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A661BB181473D400A08C24 /* AstronomicalData.m */; };
+		C1C1F21E1818A136004F13F5 /* MASSpaceImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C1F21D1818A136004F13F5 /* MASSpaceImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +67,24 @@
 		C136841A181246DF00A0A5AE /* Out_of_This_WorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Out_of_This_WorldTests.m; sourceTree = "<group>"; };
 		C13684241812478F00A0A5AE /* MASOuterSpaceVableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASOuterSpaceVableViewController.h; path = ../MASOuterSpaceVableViewController.h; sourceTree = "<group>"; };
 		C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASOuterSpaceVableViewController.m; path = ../MASOuterSpaceVableViewController.m; sourceTree = "<group>"; };
+		C15368E6181F3300002DA620 /* MASSpaceDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASSpaceDataViewController.h; sourceTree = "<group>"; };
+		C15368E7181F3300002DA620 /* MASSpaceDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASSpaceDataViewController.m; sourceTree = "<group>"; };
+		C19D6FBD18175D54008FC604 /* Earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Earth.jpg; sourceTree = "<group>"; };
+		C19D6FBE18175D54008FC604 /* EinsteinRing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EinsteinRing.jpg; sourceTree = "<group>"; };
+		C19D6FBF18175D54008FC604 /* Jupiter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jupiter.jpg; sourceTree = "<group>"; };
+		C19D6FC018175D54008FC604 /* Mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mars.jpg; sourceTree = "<group>"; };
+		C19D6FC118175D54008FC604 /* Mercury.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mercury.jpg; sourceTree = "<group>"; };
+		C19D6FC218175D54008FC604 /* Neptune.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Neptune.jpg; sourceTree = "<group>"; };
+		C19D6FC318175D54008FC604 /* Orion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Orion.jpg; sourceTree = "<group>"; };
+		C19D6FC418175D54008FC604 /* Saturn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Saturn.jpg; sourceTree = "<group>"; };
+		C19D6FC518175D54008FC604 /* Uranus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Uranus.jpg; sourceTree = "<group>"; };
+		C19D6FC618175D54008FC604 /* Venus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Venus.jpg; sourceTree = "<group>"; };
+		C19D6FD218175D88008FC604 /* MASSpaceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASSpaceObject.h; sourceTree = "<group>"; };
+		C19D6FD318175D88008FC604 /* MASSpaceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASSpaceObject.m; sourceTree = "<group>"; };
 		C1A661BA181473D400A08C24 /* AstronomicalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AstronomicalData.h; sourceTree = "<group>"; };
 		C1A661BB181473D400A08C24 /* AstronomicalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AstronomicalData.m; sourceTree = "<group>"; };
+		C1C1F21C1818A136004F13F5 /* MASSpaceImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASSpaceImageViewController.h; sourceTree = "<group>"; };
+		C1C1F21D1818A136004F13F5 /* MASSpaceImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASSpaceImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +147,7 @@
 				C1A661B91814739C00A08C24 /* Model */,
 				C13683FE181246DF00A0A5AE /* MASAppDelegate.h */,
 				C13683FF181246DF00A0A5AE /* MASAppDelegate.m */,
-				C13684241812478F00A0A5AE /* MASOuterSpaceVableViewController.h */,
-				C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */,
+				C1C1F21F1818A153004F13F5 /* Controller */,
 				C1368401181246DF00A0A5AE /* Main.storyboard */,
 				C1368407181246DF00A0A5AE /* Images.xcassets */,
 				C13683F6181246DF00A0A5AE /* Supporting Files */,
@@ -130,6 +158,7 @@
 		C13683F6181246DF00A0A5AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C19D6FD118175D5E008FC604 /* Images */,
 				C13683F7181246DF00A0A5AE /* Out of This World-Info.plist */,
 				C13683F8181246DF00A0A5AE /* InfoPlist.strings */,
 				C13683FB181246DF00A0A5AE /* main.m */,
@@ -156,13 +185,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C19D6FD118175D5E008FC604 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C19D6FBD18175D54008FC604 /* Earth.jpg */,
+				C19D6FBE18175D54008FC604 /* EinsteinRing.jpg */,
+				C19D6FBF18175D54008FC604 /* Jupiter.jpg */,
+				C19D6FC018175D54008FC604 /* Mars.jpg */,
+				C19D6FC118175D54008FC604 /* Mercury.jpg */,
+				C19D6FC218175D54008FC604 /* Neptune.jpg */,
+				C19D6FC318175D54008FC604 /* Orion.jpg */,
+				C19D6FC418175D54008FC604 /* Saturn.jpg */,
+				C19D6FC518175D54008FC604 /* Uranus.jpg */,
+				C19D6FC618175D54008FC604 /* Venus.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		C1A661B91814739C00A08C24 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				C1A661BA181473D400A08C24 /* AstronomicalData.h */,
 				C1A661BB181473D400A08C24 /* AstronomicalData.m */,
+				C19D6FD218175D88008FC604 /* MASSpaceObject.h */,
+				C19D6FD318175D88008FC604 /* MASSpaceObject.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		C1C1F21F1818A153004F13F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C15368E6181F3300002DA620 /* MASSpaceDataViewController.h */,
+				C15368E7181F3300002DA620 /* MASSpaceDataViewController.m */,
+				C13684241812478F00A0A5AE /* MASOuterSpaceVableViewController.h */,
+				C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */,
+				C1C1F21C1818A136004F13F5 /* MASSpaceImageViewController.h */,
+				C1C1F21D1818A136004F13F5 /* MASSpaceImageViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,9 +303,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19D6FC718175D54008FC604 /* Earth.jpg in Resources */,
+				C19D6FD018175D54008FC604 /* Venus.jpg in Resources */,
+				C19D6FCB18175D54008FC604 /* Mercury.jpg in Resources */,
+				C19D6FCE18175D54008FC604 /* Saturn.jpg in Resources */,
+				C19D6FCF18175D54008FC604 /* Uranus.jpg in Resources */,
 				C1368408181246DF00A0A5AE /* Images.xcassets in Resources */,
+				C19D6FCC18175D54008FC604 /* Neptune.jpg in Resources */,
+				C19D6FCA18175D54008FC604 /* Mars.jpg in Resources */,
 				C13683FA181246DF00A0A5AE /* InfoPlist.strings in Resources */,
 				C1368403181246DF00A0A5AE /* Main.storyboard in Resources */,
+				C19D6FC818175D54008FC604 /* EinsteinRing.jpg in Resources */,
+				C19D6FC918175D54008FC604 /* Jupiter.jpg in Resources */,
+				C19D6FCD18175D54008FC604 /* Orion.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +335,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1368400181246DF00A0A5AE /* MASAppDelegate.m in Sources */,
+				C1C1F21E1818A136004F13F5 /* MASSpaceImageViewController.m in Sources */,
+				C19D6FD418175D88008FC604 /* MASSpaceObject.m in Sources */,
+				C15368E8181F3300002DA620 /* MASSpaceDataViewController.m in Sources */,
 				C13684261812478F00A0A5AE /* MASOuterSpaceVableViewController.m in Sources */,
 				C13683FC181246DF00A0A5AE /* main.m in Sources */,
 				C1A661BC181473D400A08C24 /* AstronomicalData.m in Sources */,
