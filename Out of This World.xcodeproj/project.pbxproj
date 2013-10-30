@@ -14,13 +14,14 @@
 		C13683FC181246DF00A0A5AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C13683FB181246DF00A0A5AE /* main.m */; };
 		C1368400181246DF00A0A5AE /* MASAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C13683FF181246DF00A0A5AE /* MASAppDelegate.m */; };
 		C1368403181246DF00A0A5AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1368401181246DF00A0A5AE /* Main.storyboard */; };
-		C1368406181246DF00A0A5AE /* MASViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1368405181246DF00A0A5AE /* MASViewController.m */; };
 		C1368408181246DF00A0A5AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1368407181246DF00A0A5AE /* Images.xcassets */; };
 		C136840F181246DF00A0A5AE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C136840E181246DF00A0A5AE /* XCTest.framework */; };
 		C1368410181246DF00A0A5AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13683EF181246DF00A0A5AE /* Foundation.framework */; };
 		C1368411181246DF00A0A5AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13683F3181246DF00A0A5AE /* UIKit.framework */; };
 		C1368419181246DF00A0A5AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1368417181246DF00A0A5AE /* InfoPlist.strings */; };
 		C136841B181246DF00A0A5AE /* Out_of_This_WorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C136841A181246DF00A0A5AE /* Out_of_This_WorldTests.m */; };
+		C13684261812478F00A0A5AE /* MASOuterSpaceVableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */; };
+		C1A661BC181473D400A08C24 /* AstronomicalData.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A661BB181473D400A08C24 /* AstronomicalData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +46,16 @@
 		C13683FE181246DF00A0A5AE /* MASAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASAppDelegate.h; sourceTree = "<group>"; };
 		C13683FF181246DF00A0A5AE /* MASAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASAppDelegate.m; sourceTree = "<group>"; };
 		C1368402181246DF00A0A5AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C1368404181246DF00A0A5AE /* MASViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASViewController.h; sourceTree = "<group>"; };
-		C1368405181246DF00A0A5AE /* MASViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASViewController.m; sourceTree = "<group>"; };
 		C1368407181246DF00A0A5AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C136840D181246DF00A0A5AE /* Out of This WorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Out of This WorldTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C136840E181246DF00A0A5AE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C1368416181246DF00A0A5AE /* Out of This WorldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Out of This WorldTests-Info.plist"; sourceTree = "<group>"; };
 		C1368418181246DF00A0A5AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C136841A181246DF00A0A5AE /* Out_of_This_WorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Out_of_This_WorldTests.m; sourceTree = "<group>"; };
+		C13684241812478F00A0A5AE /* MASOuterSpaceVableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASOuterSpaceVableViewController.h; path = ../MASOuterSpaceVableViewController.h; sourceTree = "<group>"; };
+		C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASOuterSpaceVableViewController.m; path = ../MASOuterSpaceVableViewController.m; sourceTree = "<group>"; };
+		C1A661BA181473D400A08C24 /* AstronomicalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AstronomicalData.h; sourceTree = "<group>"; };
+		C1A661BB181473D400A08C24 /* AstronomicalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AstronomicalData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +115,12 @@
 		C13683F5181246DF00A0A5AE /* Out of This World */ = {
 			isa = PBXGroup;
 			children = (
+				C1A661B91814739C00A08C24 /* Model */,
 				C13683FE181246DF00A0A5AE /* MASAppDelegate.h */,
 				C13683FF181246DF00A0A5AE /* MASAppDelegate.m */,
+				C13684241812478F00A0A5AE /* MASOuterSpaceVableViewController.h */,
+				C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */,
 				C1368401181246DF00A0A5AE /* Main.storyboard */,
-				C1368404181246DF00A0A5AE /* MASViewController.h */,
-				C1368405181246DF00A0A5AE /* MASViewController.m */,
 				C1368407181246DF00A0A5AE /* Images.xcassets */,
 				C13683F6181246DF00A0A5AE /* Supporting Files */,
 			);
@@ -150,6 +154,15 @@
 				C1368417181246DF00A0A5AE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C1A661B91814739C00A08C24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1A661BA181473D400A08C24 /* AstronomicalData.h */,
+				C1A661BB181473D400A08C24 /* AstronomicalData.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1368406181246DF00A0A5AE /* MASViewController.m in Sources */,
 				C1368400181246DF00A0A5AE /* MASAppDelegate.m in Sources */,
+				C13684261812478F00A0A5AE /* MASOuterSpaceVableViewController.m in Sources */,
 				C13683FC181246DF00A0A5AE /* main.m in Sources */,
+				C1A661BC181473D400A08C24 /* AstronomicalData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +475,7 @@
 				C1368420181246DF00A0A5AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C1368421181246DF00A0A5AE /* Build configuration list for PBXNativeTarget "Out of This WorldTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +484,7 @@
 				C1368423181246DF00A0A5AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
