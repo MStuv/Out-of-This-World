@@ -73,9 +73,20 @@
             NSIndexPath *path = [self.tableView indexPathForCell:sender];
             
             // Create an instance of the object and set its value from the object array at the previously determined indexPath's row (path.row)
-            MASSpaceObject *selectedObject = self.planets[path.row];
+            MASSpaceObject *selectedObject;
+            
+/// if section is 0, set selectedObject to the spaceObject that is at the current indexPath.row of the planets array!
+            if (path.section == 0) {
+                selectedObject = self.planets[path.row];
+                
+/// if section is 1, set selectedObject to the spaceObject that is at the current indexPath.row of the addedSpaceObjects array!
+            } else if (path.section ==1){
+                selectedObject = self.addedSpaceObjects[path.row];
+            }
             
             // Set the object property from the incoming/destination viewController to the value of the current viewController's selectedObject
+            /// set spaceObject property from the targetVC to the selectedObject
+
             nextViewController.spaceObject = selectedObject;
         }
     }
@@ -91,10 +102,21 @@
             MASSpaceDataViewController *targetViewController = segue.destinationViewController;
             
             NSIndexPath *path = sender;
-            MASSpaceObject *selectedObject = self.planets[path.row];
+            MASSpaceObject *selectedObject;
+
+/// Same change as above:
             
+        /// if section is 0, set selectedObject to the spaceObject that is at the current indexPath.row of the planets array!
+            if (path.section == 0) {
+                selectedObject = self.planets[path.row];
+                
+        /// if section is 1, set selectedObject to the spaceObject that is at the current indexPath.row of the addedSpaceObjects array!
+            } else if (path.section ==1){
+                selectedObject = self.addedSpaceObjects[path.row];
+            }
+            
+        /// set spaceObject property from the targetVC to the selectedObject
             targetViewController.spaceObject = selectedObject;
-            
         }
     }
     
@@ -201,6 +223,7 @@
         MASSpaceObject *planet = [self.addedSpaceObjects objectAtIndex:indexPath.row];
         cell.textLabel.text = planet.name;
         cell.detailTextLabel.text = planet.nickname;
+        cell.imageView.image = planet.spaceImage;
         
     } else {
     
