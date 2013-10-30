@@ -8,10 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+/// Creating our own protocol to send data back to previous VC
+@protocol MASAddSpaceViewControllerDelegate <NSObject>
+
+///Methods will be called/implemented in a VC that had conformed to this @protocol
+
+/// required means that if a VC conforms to the @protocol/delegate, it is required to implement the @required methods. @optional would mean that it would be @optional to implement.
+@required
+-(void)addSpaceObject;
+-(void)didCancel;
+
+@end
+
 @interface MASAddObjectViewController : UIViewController
 
+/** This property will be available to be set in the conformed VC.**/
+@property (weak, nonatomic) id <MASAddSpaceViewControllerDelegate> delegate;
 
-/// Properties
+
+// Properties
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *nicknameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *diameterTextField;
@@ -19,7 +34,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *numberOfMoonsTextField;
 @property (strong, nonatomic) IBOutlet UITextField *interestingFactTextField;
 
-///Buttons
+//Buttons
 - (IBAction)cancelButton:(UIButton *)sender;
 - (IBAction)addButton:(UIButton *)sender;
 
