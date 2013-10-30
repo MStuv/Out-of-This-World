@@ -152,6 +152,9 @@
     /// Dismiss AddObjectVC
     NSLog(@"addSpaceObject");
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    /// Reload Data in tableView
+    [self.tableView reloadData];
 }
 
 
@@ -177,6 +180,7 @@
     
     // If the section is 1, use the count of the added SpaceObjects to figure the amount of rows
     if (section == 1) {
+        
         return [self.addedSpaceObjects count];
     } else {
          return [self.planets count];
@@ -192,7 +196,12 @@
     // Configure the cell...
     
     if (indexPath.section ==1) {
-        // Use new space object to customize the cell
+        /// Use new space object to customize the cell
+    /// Create instance of spaceObject and set it to the new object at the current indexPath's row
+        MASSpaceObject *planet = [self.addedSpaceObjects objectAtIndex:indexPath.row];
+        cell.textLabel.text = planet.name;
+        cell.detailTextLabel.text = planet.nickname;
+        
     } else {
     
         // Access the MASSpaceObject from plants array and use its properties to update the cell's properties
