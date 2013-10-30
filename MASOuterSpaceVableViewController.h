@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MASAddObjectViewController.h"
 
-
-@interface MASOuterSpaceVableViewController : UITableViewController
+/// Conform to AddSpaceVC protocol
+@interface MASOuterSpaceVableViewController : UITableViewController <MASAddSpaceViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *planets;
 @property (strong, nonatomic) NSMutableArray *addedSpaceObjects;

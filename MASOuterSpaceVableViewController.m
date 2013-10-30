@@ -33,56 +33,56 @@
 
     self.planets = [[NSMutableArray alloc] init];
     
-    /// Enumerating through the NSDictionarys using the allKnownPlanets class method in AstromicalData Class
+    // Enumerating through the NSDictionarys using the allKnownPlanets class method in AstromicalData Class
     for (NSMutableDictionary *planetData in [AstronomicalData allKnownPlanets]) {
         
-        /// Creating a string of the image name for each planet. The images are the name of the planet so we are utilizing the PLANET_NAME key in the current dictionary to create a stringWithFormat and adding .jpg to the string
+        // Creating a string of the image name for each planet. The images are the name of the planet so we are utilizing the PLANET_NAME key in the current dictionary to create a stringWithFormat and adding .jpg to the string
         NSString *imageName = [NSString stringWithFormat:@"%@.jpg", planetData[PLANET_NAME]];
         
-        /// Creating an instance of MASSpaceObject and initializing it with the custom Designated Initializer, passing the current dictionary data and the imageNamed based on the NSString above.
+        // Creating an instance of MASSpaceObject and initializing it with the custom Designated Initializer, passing the current dictionary data and the imageNamed based on the NSString above.
         MASSpaceObject *planet = [[MASSpaceObject alloc] initWithData:planetData andImage:[UIImage imageNamed:imageName]];
         
-        /// loading the instance of MASSpaceObject into the planets array.
+        // loading the instance of MASSpaceObject into the planets array.
         [self.planets addObject:planet];
     }
 }
 
-/// Method used to pass arguments from the current viewController to another viewCotroller through the segue that was connected in Storyboard
+// Method used to pass arguments from the current viewController to another viewCotroller through the segue that was connected in Storyboard
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 
-/// This part of prepareForSegue method is for passing data to the SpaceImageViewController when the row is touched
+// This part of prepareForSegue method is for passing data to the SpaceImageViewController when the row is touched
 
 
-        /** 'sender' is type (id) which can take any object, in this method, it is equal to the current tableViewCell. Although 'sender' can take any object, it is very important that we know what the object type is so we call its methods or access its properties. To figure out what class type the object has, we use introspection to validate the type of the incoming object**/
+        /* 'sender' is type (id) which can take any object, in this method, it is equal to the current tableViewCell. Although 'sender' can take any object, it is very important that we know what the object type is so we call its methods or access its properties. To figure out what class type the object has, we use introspection to validate the type of the incoming object */
 {
-    /** Calling the isKindOfClass method on the sender object will compare the current viewController's Class to the class of the UITableViewCell.
+    /* Calling the isKindOfClass method on the sender object will compare the current viewController's Class to the class of the UITableViewCell.
      
-     If the sender is of the correct class, the 'if logic' will trigger to the next conditional...**/
+     If the sender is of the correct class, the 'if logic' will trigger to the next conditional...*/
     if ([sender isKindOfClass:[UITableViewCell class]]) {
         
-    /** Segue has a .destinationViewController property that will access the incoming viewController's class so that it can be checked using the isKindOfClass method
+    /* Segue has a .destinationViewController property that will access the incoming viewController's class so that it can be checked using the isKindOfClass method
      
-     If the segue.destinationViewController (incoming viewController) is of the correct class, the next 'if logic' will trigger and the object properties will be passed to the incoming viewController **/
+     If the segue.destinationViewController (incoming viewController) is of the correct class, the next 'if logic' will trigger and the object properties will be passed to the incoming viewController */
         if ([segue.destinationViewController isKindOfClass:[MASSpaceImageViewController class]]) {
             
-            /// Create an instance of the incoming viewController and set its value to segue.destinationViewController
+            // Create an instance of the incoming viewController and set its value to segue.destinationViewController
             MASSpaceImageViewController *nextViewController = segue.destinationViewController;
             
-            /// Create an instance of NSIndexPath so that the current indexPath can be obtained to assure we are pasing the proper object properties
+            // Create an instance of NSIndexPath so that the current indexPath can be obtained to assure we are pasing the proper object properties
             NSIndexPath *path = [self.tableView indexPathForCell:sender];
             
-            /// Create an instance of the object and set its value from the object array at the previously determined indexPath's row (path.row)
+            // Create an instance of the object and set its value from the object array at the previously determined indexPath's row (path.row)
             MASSpaceObject *selectedObject = self.planets[path.row];
             
-            /// Set the object property from the incoming/destination viewController to the value of the current viewController's selectedObject
+            // Set the object property from the incoming/destination viewController to the value of the current viewController's selectedObject
             nextViewController.spaceObject = selectedObject;
         }
     }
     
     
     
-///This part of the prepareForSegue method is for passing the data to the SpaceDataTableViewController when the accessory button is touched.
+//This part of the prepareForSegue method is for passing the data to the SpaceDataTableViewController when the accessory button is touched.
     
     if  ([sender isKindOfClass:[NSIndexPath class]])
     {
@@ -98,12 +98,41 @@
         }
     }
     
-}
+    
+/// This part of prepareForSegue, is setting the protocol property from the AddObjectVC delegate to self.
+    if ([segue.destinationViewController isKindOfClass:[MASAddObjectViewController class]]) {
+        
+        /// Creating instance of MASAddObjectVC and setting it to the segue destination
+        MASAddObjectViewController *addSpaceObjectVC = segue.destinationViewController;
+        /// Set as delegate
+        addSpaceObjectVC.delegate = self;
+        }
+    
+    }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/// Methods will be called from MASAddObjectViewController
+#pragma mark - MASAddObjectViewController Delegate
+
+-(void)didCancel
+{
+    NSLog(@"didCancel");
+    /// Dismiss AddObjectVC
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+-(void)addSpaceObject
+{
+    /// Dismiss AddObjectVC
+    NSLog(@"addSpaceObject");
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -112,10 +141,10 @@
 {
     // Return the number of sections.
     
-    /// If the user added a spaceObject - Return that there should be 2 sections
+    // If the user added a spaceObject - Return that there should be 2 sections
     if ([self.addedSpaceObjects count]) {
         return 2;
-        /// If not, return that there is only 1 section
+        // If not, return that there is only 1 section
     } else {
         return 1;
     }
@@ -126,7 +155,7 @@
 {
     // Return the number of rows in the section.
     
-    ///If the section is 1, use the count of the added SpaceObjects to figure the amount of rows
+    // If the section is 1, use the count of the added SpaceObjects to figure the amount of rows
     if (section == 1) {
         return [self.addedSpaceObjects count];
     } else {
@@ -143,7 +172,7 @@
     // Configure the cell...
     
     if (indexPath.section ==1) {
-        /// Use new space object to customize the cell
+        // Use new space object to customize the cell
     } else {
     
         // Access the MASSpaceObject from plants array and use its properties to update the cell's properties
@@ -154,13 +183,13 @@
     }
     
         // Customize the appearance of the TableViewCells
-        /// Setting the cell background to clear
+        // Setting the cell background to clear
         cell.backgroundColor = [UIColor clearColor];
         
-        /// Setting the textLabel color to white
+        // Setting the textLabel color to white
         cell.textLabel.textColor = [UIColor whiteColor];
         
-        /// Setting the detailTextLabel color to off white
+        // Setting the detailTextLabel color to off white
         cell.detailTextLabel.textColor = [UIColor colorWithWhite:0.5 alpha:1.0];
         
         return cell;
