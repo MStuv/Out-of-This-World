@@ -111,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1302F7818217562004441D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1368401181246DF00A0A5AE /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		C13683E3181246DF00A0A5AE = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +156,7 @@
 				C13683FE181246DF00A0A5AE /* MASAppDelegate.h */,
 				C13683FF181246DF00A0A5AE /* MASAppDelegate.m */,
 				C1C1F21F1818A153004F13F5 /* Controller */,
-				C1368401181246DF00A0A5AE /* Main.storyboard */,
+				C1302F7818217562004441D0 /* View */,
 				C1368407181246DF00A0A5AE /* Images.xcassets */,
 				C13683F6181246DF00A0A5AE /* Supporting Files */,
 			);
@@ -218,10 +226,10 @@
 			children = (
 				C15368E6181F3300002DA620 /* MASSpaceDataViewController.h */,
 				C15368E7181F3300002DA620 /* MASSpaceDataViewController.m */,
-				C13684241812478F00A0A5AE /* MASOuterSpaceVableViewController.h */,
-				C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */,
 				C1C1F21C1818A136004F13F5 /* MASSpaceImageViewController.h */,
 				C1C1F21D1818A136004F13F5 /* MASSpaceImageViewController.m */,
+				C13684241812478F00A0A5AE /* MASOuterSpaceVableViewController.h */,
+				C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

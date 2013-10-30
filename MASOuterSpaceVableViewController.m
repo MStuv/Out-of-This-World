@@ -111,14 +111,27 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    
+    /// If the user added a spaceObject - Return that there should be 2 sections
+    if ([self.addedSpaceObjects count]) {
+        return 2;
+        /// If not, return that there is only 1 section
+    } else {
+        return 1;
+    }
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-  
-    return [self.planets count];
+    
+    ///If the section is 1, use the count of the added SpaceObjects to figure the amount of rows
+    if (section == 1) {
+        return [self.addedSpaceObjects count];
+    } else {
+         return [self.planets count];
+    }
 }
 
 
@@ -127,23 +140,31 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+        // Configure the cell...
     
-    MASSpaceObject *planet = [self.planets objectAtIndex:indexPath.row];
-    cell.textLabel.text = planet.name;
-    cell.detailTextLabel.text = planet.nickname;
-    cell.imageView.image = planet.spaceImage;
+    if (indexPath.section ==1) {
+        /// Use new space object to customize the cell
+    } else {
     
-    /// Setting the cell background to clear
-    cell.backgroundColor = [UIColor clearColor];
+        // Access the MASSpaceObject from plants array and use its properties to update the cell's properties
+        MASSpaceObject *planet = [self.planets objectAtIndex:indexPath.row];
+        cell.textLabel.text = planet.name;
+        cell.detailTextLabel.text = planet.nickname;
+        cell.imageView.image = planet.spaceImage;
+    }
     
-    /// Setting the textLabel color to white
-    cell.textLabel.textColor = [UIColor whiteColor];
+        // Customize the appearance of the TableViewCells
+        /// Setting the cell background to clear
+        cell.backgroundColor = [UIColor clearColor];
+        
+        /// Setting the textLabel color to white
+        cell.textLabel.textColor = [UIColor whiteColor];
+        
+        /// Setting the detailTextLabel color to off white
+        cell.detailTextLabel.textColor = [UIColor colorWithWhite:0.5 alpha:1.0];
+        
+        return cell;
     
-    /// Setting the detailTextLabel color to off white
-    cell.detailTextLabel.textColor = [UIColor colorWithWhite:0.5 alpha:1.0];
-    
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
