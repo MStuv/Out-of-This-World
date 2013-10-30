@@ -18,6 +18,27 @@
 
 @implementation MASOuterSpaceVableViewController
 
+#pragma mark - Lazy Instantiation of Properties
+/// These methods (planets & addedSpaceObjects) will run every time the planets or addSpaceObjects properties are called.
+
+/// override getter of the planets array property to alloc & init if it has not been done yet.
+-(NSMutableArray *)planets
+{
+    if (!_planets) {
+        _planets = [[NSMutableArray alloc] init];
+    }
+    return _planets;
+}
+
+/// override the getter of the addedSpaceObjects array property to alloc & init if it has not been done yet.
+-(NSMutableArray *)addedSpaceObjects
+{
+    if (!_addedSpaceObjects) {
+        _addedSpaceObjects = [[NSMutableArray alloc] init];
+    }
+    return _addedSpaceObjects;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -31,7 +52,8 @@
 {
     [super viewDidLoad];
 
-    self.planets = [[NSMutableArray alloc] init];
+    ///Removed since the planets array had been created in the Lazy instantiation above
+    //self.planets = [[NSMutableArray alloc] init];
     
     // Enumerating through the NSDictionarys using the allKnownPlanets class method in AstromicalData Class
     for (NSMutableDictionary *planetData in [AstronomicalData allKnownPlanets]) {
@@ -150,7 +172,7 @@
     
 }
 
-
+/// Replaced with method that returns spaceObject shown below
 //-(void)addSpaceObject
 //{
 //    /// Dismiss AddObjectVC
@@ -160,11 +182,13 @@
 
 -(void)addSpaceObject:(MASSpaceObject *)spaceObject
 {
-    /// if addedSpaceObjects array does not exsist...
-    if (!self.addedSpaceObjects) {
-        /// ...create it
-        self.addedSpaceObjects = [[NSMutableArray alloc] init];
-    }
+    
+    ///Removed since the addedSpaceObjects array had been created in the Lazy instantiation at the top of the header
+//    /// if addedSpaceObjects array does not exsist...
+//    if (!self.addedSpaceObjects) {
+//        /// ...create it
+//        self.addedSpaceObjects = [[NSMutableArray alloc] init];
+//    }
     
     /// add the spaceObject that is being passed from the delegate method into the array.
     /// all new spaceObjects created will be stored in the addedSpaceObjects array
@@ -255,55 +279,5 @@
     [self performSegueWithIdentifier:@"push to space data" sender:indexPath];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end
