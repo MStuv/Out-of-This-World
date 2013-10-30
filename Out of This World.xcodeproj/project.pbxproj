@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1302F7B18217A26004441D0 /* MASAddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1302F7A18217A26004441D0 /* MASAddObjectViewController.m */; };
 		C13683F0181246DF00A0A5AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13683EF181246DF00A0A5AE /* Foundation.framework */; };
 		C13683F2181246DF00A0A5AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13683F1181246DF00A0A5AE /* CoreGraphics.framework */; };
 		C13683F4181246DF00A0A5AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13683F3181246DF00A0A5AE /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C1302F7918217A26004441D0 /* MASAddObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASAddObjectViewController.h; sourceTree = "<group>"; };
+		C1302F7A18217A26004441D0 /* MASAddObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASAddObjectViewController.m; sourceTree = "<group>"; };
 		C13683EC181246DF00A0A5AE /* Out of This World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Out of This World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13683EF181246DF00A0A5AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C13683F1181246DF00A0A5AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -230,6 +233,8 @@
 				C1C1F21D1818A136004F13F5 /* MASSpaceImageViewController.m */,
 				C13684241812478F00A0A5AE /* MASOuterSpaceVableViewController.h */,
 				C13684251812478F00A0A5AE /* MASOuterSpaceVableViewController.m */,
+				C1302F7918217A26004441D0 /* MASAddObjectViewController.h */,
+				C1302F7A18217A26004441D0 /* MASAddObjectViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				C13684261812478F00A0A5AE /* MASOuterSpaceVableViewController.m in Sources */,
 				C13683FC181246DF00A0A5AE /* main.m in Sources */,
 				C1A661BC181473D400A08C24 /* AstronomicalData.m in Sources */,
+				C1302F7B18217A26004441D0 /* MASAddObjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

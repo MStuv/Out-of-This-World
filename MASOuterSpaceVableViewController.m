@@ -140,7 +140,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-        // Configure the cell...
+    // Configure the cell...
     
     if (indexPath.section ==1) {
         /// Use new space object to customize the cell
