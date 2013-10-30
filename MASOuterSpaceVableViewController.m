@@ -128,12 +128,32 @@
     
 }
 
--(void)addSpaceObject
+
+//-(void)addSpaceObject
+//{
+//    /// Dismiss AddObjectVC
+//    NSLog(@"addSpaceObject");
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+
+-(void)addSpaceObject:(MASSpaceObject *)spaceObject
 {
+    /// if addedSpaceObjects array does not exsist...
+    if (!self.addedSpaceObjects) {
+        /// ...create it
+        self.addedSpaceObjects = [[NSMutableArray alloc] init];
+    }
+    
+    /// add the spaceObject that is being passed from the delegate method into the array.
+    /// all new spaceObjects created will be stored in the addedSpaceObjects array
+    [self.addedSpaceObjects addObject:spaceObject];
+    
+    
     /// Dismiss AddObjectVC
     NSLog(@"addSpaceObject");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 #pragma mark - Table view data source
 
