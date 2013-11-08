@@ -22,7 +22,7 @@
 
 @property (strong, nonatomic) UIImage *spaceImage;
 
-/// id is pointer to any object
+// id is pointer to any object
 -(id)initWithData:(NSDictionary *)data andImage:(UIImage *)image;
 
 @end

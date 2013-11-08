@@ -10,16 +10,16 @@
 #import "MASSpaceObject.h"
 
 
-/// Creating our own protocol to send data back to previous VC
+// Creating our own protocol to send data back to previous VC
 @protocol MASAddSpaceViewControllerDelegate <NSObject>
 
-///Methods will be called/implemented in a VC that had conformed to this @protocol
+//Methods will be called/implemented in a VC that had conformed to this @protocol
 
-/// required means that if a VC conforms to the @protocol/delegate, it is required to implement the @required methods. @optional would mean that it would be @optional to implement.
+// required means that if a VC conforms to the @protocol/delegate, it is required to implement the @required methods. @optional would mean that it would be @optional to implement.
 
 @required
 
-/// adjusted method so that it will pass a spaceObject to the conforming VC
+// adjusted method so that it will pass a spaceObject to the conforming VC
 -(void)addSpaceObject:(MASSpaceObject *)spaceObject;
 -(void)didCancel;
 
@@ -27,7 +27,7 @@
 
 @interface MASAddObjectViewController : UIViewController
 
-/** This property will be available to be set in the conformed VC.**/
+/* This property will be available to be set in the conformed VC.*/
 @property (weak, nonatomic) id <MASAddSpaceViewControllerDelegate> delegate;
 
 

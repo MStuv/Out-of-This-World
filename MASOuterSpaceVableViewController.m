@@ -18,10 +18,15 @@
 
 @implementation MASOuterSpaceVableViewController
 
-#pragma mark - Lazy Instantiation of Properties
-/// These methods (planets & addedSpaceObjects) will run every time the planets or addSpaceObjects properties are called.
+/// This code is here instead of the header file because this is part of a private API.
+/// We are defining a
+#define ADDED_SPACE_OBJECTS_KEY @"Added Space Objects Array"
 
-/// override getter of the planets array property to alloc & init if it has not been done yet.
+
+#pragma mark - Lazy Instantiation of Properties
+// These methods (planets & addedSpaceObjects) will run every time the planets or addSpaceObjects properties are called.
+
+// override getter of the planets array property to alloc & init if it has not been done yet.
 -(NSMutableArray *)planets
 {
     if (!_planets) {
@@ -30,7 +35,7 @@
     return _planets;
 }
 
-/// override the getter of the addedSpaceObjects array property to alloc & init if it has not been done yet.
+// override the getter of the addedSpaceObjects array property to alloc & init if it has not been done yet.
 -(NSMutableArray *)addedSpaceObjects
 {
     if (!_addedSpaceObjects) {
@@ -52,7 +57,7 @@
 {
     [super viewDidLoad];
 
-    ///Removed since the planets array had been created in the Lazy instantiation above
+    //Removed since the planets array had been created in the Lazy instantiation above
     //self.planets = [[NSMutableArray alloc] init];
     
     // Enumerating through the NSDictionarys using the allKnownPlanets class method in AstromicalData Class
@@ -66,6 +71,19 @@
         
         // loading the instance of MASSpaceObject into the planets array.
         [self.planets addObject:planet];
+    }
+  
+/// Loading data from NSUserDefaults
+    
+    NSArray *myPlanetsAsPropertyLists = [[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SPACE_OBJECTS_KEY];
+    
+    /// iterate through the array
+    for (NSDictionary *dictionary in myPlanetsAsPropertyLists) {
+        /// pull out a MASSpaceObject object set with the spaceObjectForDictionary: helper method.
+        MASSpaceObject *spaceObject = [self spaceObjectForDictionary:dictionary];
+        
+        /// add the spaceObject to the
+        [self.addedSpaceObjects addObject:spaceObject];
     }
 }
 
@@ -97,17 +115,17 @@
             // Create an instance of the object and set its value from the object array at the previously determined indexPath's row (path.row)
             MASSpaceObject *selectedObject;
             
-/// if section is 0, set selectedObject to the spaceObject that is at the current indexPath.row of the planets array!
+// if section is 0, set selectedObject to the spaceObject that is at the current indexPath.row of the planets array!
             if (path.section == 0) {
                 selectedObject = self.planets[path.row];
                 
-/// if section is 1, set selectedObject to the spaceObject that is at the current indexPath.row of the addedSpaceObjects array!
+// if section is 1, set selectedObject to the spaceObject that is at the current indexPath.row of the addedSpaceObjects array!
             } else if (path.section ==1){
                 selectedObject = self.addedSpaceObjects[path.row];
             }
             
             // Set the object property from the incoming/destination viewController to the value of the current viewController's selectedObject
-            /// set spaceObject property from the targetVC to the selectedObject
+            // set spaceObject property from the targetVC to the selectedObject
 
             nextViewController.spaceObject = selectedObject;
         }
@@ -126,29 +144,29 @@
             NSIndexPath *path = sender;
             MASSpaceObject *selectedObject;
 
-/// Same change as above:
+// Same change as above:
             
-        /// if section is 0, set selectedObject to the spaceObject that is at the current indexPath.row of the planets array!
+        // if section is 0, set selectedObject to the spaceObject that is at the current indexPath.row of the planets array!
             if (path.section == 0) {
                 selectedObject = self.planets[path.row];
                 
-        /// if section is 1, set selectedObject to the spaceObject that is at the current indexPath.row of the addedSpaceObjects array!
+        // if section is 1, set selectedObject to the spaceObject that is at the current indexPath.row of the addedSpaceObjects array!
             } else if (path.section ==1){
                 selectedObject = self.addedSpaceObjects[path.row];
             }
             
-        /// set spaceObject property from the targetVC to the selectedObject
+        // set spaceObject property from the targetVC to the selectedObject
             targetViewController.spaceObject = selectedObject;
         }
     }
     
     
-/// This part of prepareForSegue, is setting the protocol property from the AddObjectVC delegate to self.
+// This part of prepareForSegue, is setting the protocol property from the AddObjectVC delegate to self.
     if ([segue.destinationViewController isKindOfClass:[MASAddObjectViewController class]]) {
         
-        /// Creating instance of MASAddObjectVC and setting it to the segue destination
+        // Creating instance of MASAddObjectVC and setting it to the segue destination
         MASAddObjectViewController *addSpaceObjectVC = segue.destinationViewController;
-        /// Set as delegate
+        // Set as delegate
         addSpaceObjectVC.delegate = self;
         }
     
@@ -161,18 +179,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/// Methods will be called from MASAddObjectViewController
+// Methods will be called from MASAddObjectViewController
 #pragma mark - MASAddObjectViewController Delegate
 
 -(void)didCancel
 {
     NSLog(@"didCancel");
-    /// Dismiss AddObjectVC
+    // Dismiss AddObjectVC
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
-/// Replaced with method that returns spaceObject shown below
+// Replaced with method that returns spaceObject shown below
 //-(void)addSpaceObject
 //{
 //    /// Dismiss AddObjectVC
@@ -183,24 +201,80 @@
 -(void)addSpaceObject:(MASSpaceObject *)spaceObject
 {
     
-    ///Removed since the addedSpaceObjects array had been created in the Lazy instantiation at the top of the header
+    //Removed since the addedSpaceObjects array had been created in the Lazy instantiation at the top of the header
 //    /// if addedSpaceObjects array does not exsist...
 //    if (!self.addedSpaceObjects) {
 //        /// ...create it
 //        self.addedSpaceObjects = [[NSMutableArray alloc] init];
 //    }
     
-    /// add the spaceObject that is being passed from the delegate method into the array.
-    /// all new spaceObjects created will be stored in the addedSpaceObjects array
+    // add the spaceObject that is being passed from the delegate method into the array.
+    // all new spaceObjects created will be stored in the addedSpaceObjects array
+    
     [self.addedSpaceObjects addObject:spaceObject];
     
+/// Will save to NSUserDefaults here
+    /// Create a mutableArray from the data that is in the NSUserDefaults object.
+    NSMutableArray *spaceObjectsAsPropertyLists =
+                        /// Returns a NSUserDefaults object using the standardUserDefaults Class method
+                        [[[NSUserDefaults standardUserDefaults]
+                        /// get the array at this key from the UserDefaults file
+                        arrayForKey:ADDED_SPACE_OBJECTS_KEY]
+                        /// The above method returns an array of added space objects, but we need it to be mutable so we are calling the mutableCopy method to create a mutableCopy of the array.
+                        mutableCopy];
     
-    /// Dismiss AddObjectVC
-    NSLog(@"addSpaceObject");
+/// If spaceObjectsAsPropertyList variable does not have a value (NSUserDefaults is Empty)... create it
+    ///(If only a single line of code, no curly braces needed but anymore then one line, it will not work)
+    if (!spaceObjectsAsPropertyLists) spaceObjectsAsPropertyLists =
+        [[NSMutableArray alloc] init];
+    
+    /// Uses helper method to create an object of the NSDictionary properties of the addedSpaceObject
+    [spaceObjectsAsPropertyLists addObject:[self spaceObjectAsAPropertyList:spaceObject]];
+    
+    /// Set the mutableArray as an object in the NSUserDefaults
+    [[NSUserDefaults standardUserDefaults] setObject:spaceObjectsAsPropertyLists forKey:ADDED_SPACE_OBJECTS_KEY];
+    
+    /// synchronize will actually save the data that was set
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
+    
+    // Dismiss AddObjectVC
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    /// Reload Data in tableView
+    // Reload Data in tableView
     [self.tableView reloadData];
+}
+
+
+#pragma mark - Helper Methods
+
+/// Method that will be called to save data to NSUserDefaults
+-(NSDictionary *)spaceObjectAsAPropertyList:(MASSpaceObject *)spaceObject
+{
+    /// Convert SpaceImage to a NSData file so that it can be saved in NSUserDefaults
+    NSData *imageData = UIImagePNGRepresentation(spaceObject.spaceImage);
+    
+    /// Create a dictionary of the new planet's data properties
+    NSDictionary *dictionary = @{PLANET_NAME : spaceObject.name, PLANET_GRAVITY : @(spaceObject.gravitationalForce), PLANET_DIAMETER : @(spaceObject.diameter), PLANET_YEAR_LENGTH : @(spaceObject.yearLength), PLANET_DAY_LENGTH : @(spaceObject.dayLength), PLANET_TEMPERATURE : @(spaceObject.temperature), PLANET_NUMBER_OF_MOONS : @(spaceObject.numberOfMoons), PLANET_NICKNAME : spaceObject.nickname, PLANET_INTERESTING_FACT : spaceObject.interestFact, PLANET_IMAGE : imageData };
+    
+    return dictionary;
+}
+
+
+/// Method that will be called to load data from NSUserDefaults
+-(MASSpaceObject *)spaceObjectForDictionary:(NSDictionary *)dictionary
+{
+    /// create instance of NSData and set the value to the image data object in the dictionary at key PLANET_IMAGE
+    NSData *dataForImage = dictionary[PLANET_IMAGE];
+    
+    /// create an instance of UIImage and using imageWithData, set the value to the value of the dataForImage object.
+    UIImage *spaceObjectImage = [UIImage imageWithData:dataForImage];
+    
+    /// Using the MASSpaceObject custom initializer, we are initiating an instance MASSpaceObject with the data from the NSUserDefaults dictionary data.
+    MASSpaceObject *spaceObject = [[MASSpaceObject alloc] initWithData:dictionary andImage:spaceObjectImage];
+    
+    return spaceObject;
 }
 
 
@@ -242,8 +316,8 @@
     // Configure the cell...
     
     if (indexPath.section ==1) {
-        /// Use new space object to customize the cell
-    /// Create instance of spaceObject and set it to the new object at the current indexPath's row
+        // Use new space object to customize the cell
+    // Create instance of spaceObject and set it to the new object at the current indexPath's row
         MASSpaceObject *planet = [self.addedSpaceObjects objectAtIndex:indexPath.row];
         cell.textLabel.text = planet.name;
         cell.detailTextLabel.text = planet.nickname;
@@ -274,10 +348,58 @@
 
 #pragma mark - UITableViewDelegate
 
+// Override to support custom action when accessoryButton is tapped
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"push to space data" sender:indexPath];
 }
+
+
+// Override to support conditional editing of the table view
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    /// No curly brace because only 1 line of code after 'if' and 1 line of code after 'else'
+    if (indexPath.section == 1) return YES;
+    else return NO;
+}
+
+/// Removing Data from NSUserDefaults when a user deletes a row from the tableView
+// Override to support editing the table view
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        
+        /// remove data from addedSpaceObject array at the indexPath that the user swiped
+        [self.addedSpaceObjects removeObjectAtIndex:indexPath.row];
+        
+        /// create a new array that will presist or save to the NSUserDefault without the spaceObject that the user just deleted
+        NSMutableArray *newSavedSpaceObjectData = [[NSMutableArray alloc] init];
+        
+        /// enumerate through the spaceObjects in the addedSpaceObjects array
+        for (MASSpaceObject *spaceObject in self.addedSpaceObjects) {
+            
+            /// add the dictionary that is returned from the spaceObjectAsAPropertList method.
+            [newSavedSpaceObjectData addObject:[self spaceObjectAsAPropertyList:spaceObject]];
+        }
+        
+        /// Create instance of the UserDefaults and set the newSavedSpaceObjectData at the ADDED_SPACE_OBJECTS_KEY as an object in the UserDefaults
+        [[NSUserDefaults standardUserDefaults] setObject:newSavedSpaceObjectData forKey:ADDED_SPACE_OBJECTS_KEY];
+        
+        /// Save/Synchronize the data to the NSUserDefaults
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        /// row at the indexPath that the user is deleting is removed with fade animation
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
+
+
 
 
 @end

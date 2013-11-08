@@ -28,9 +28,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    /// Setting Background of VC to a pattern of an image
+    // Setting Background of VC to a pattern of an image
     UIImage *orionImage = [UIImage imageNamed:@"Orion.jpg"];
-    ///self.view is referring to the view of the VC that VC controls
+    //self.view is referring to the view of the VC that VC controls
     self.view.backgroundColor = [UIColor colorWithPatternImage:orionImage];
 }
 
@@ -42,20 +42,20 @@
 
 - (IBAction)cancelButton:(UIButton *)sender {
     
-    /// access the delegate property and
+    // access the delegate property and
     [self.delegate didCancel];
 }
 
 - (IBAction)addButton:(UIButton *)sender {
     
-    /// Create instance of spaceObject setting it to the SpaceObject that is returned from the returnNewSpaceObject helper method.
+    // Create instance of spaceObject setting it to the SpaceObject that is returned from the returnNewSpaceObject helper method.
     MASSpaceObject *newSpaceObject = [self returnNewSpaceObject];
     [self.delegate addSpaceObject:newSpaceObject];
 }
 
 #pragma mark - Helper Methods
 
-/// Method will be called
+// Method will be called
 -(MASSpaceObject *)returnNewSpaceObject
 {
     MASSpaceObject *addedSpaceObject = [[MASSpaceObject alloc] init];
@@ -66,7 +66,7 @@
     addedSpaceObject.numberOfMoons = [self.numberOfMoonsTextField.text intValue];
     addedSpaceObject.interestFact = self.interestingFactTextField.text;
     
-    /// Add placeholder for planet image
+    // Add placeholder for planet image
     addedSpaceObject.spaceImage = [UIImage imageNamed:@"EinsteinRing.jpg"];
     
     return addedSpaceObject;
